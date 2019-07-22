@@ -1,8 +1,59 @@
-ကၽြန္ေတာ္ကိုယ္တိုင္သံုးဖို႔ ဒီ sanztou library ေလးကိုေရးလိုက္တာပါ။ ဒါေပမဲ့ ကၽြန္ေတာ့ညီငယ္ Oscar Myo Min ရဲ႕ တိုက္တြန္းမႈ႕ေၾကာင့္ Public ေပးသံုးလိုက္တာပါ။ ဒါေၾကာင့္ ဒီ lib က အရမ္းအဆင္ေျပလွတယ္မဟုတ္ေပမဲ့ အထုိက္အေလ်ာက္ေတာ့ ေဇာ္ဂ်ီကေန ယူနီ၊ ယူနီကေန ေဇာ္ဂ်ီကို ေျပာင္းႏုိင္ေအာင္ အေထာက္အထူျပဳႏိုင္ပါတယ္။ ဒီ lib ကို အခမဲ့ အသံုးျပဳႏိုင္ပါတယ္။ ဒါေပမဲ့ အသံုးျပဳတဲ့အခါမွာေတာ့ credit ေပးေစလိုပါတယ္။ lib အသံုးျပဳပံုကိုေအာက္မွာေဖာ္ျပေပးထားပါတယ္။
+#San Zawgyi to Uni
+ကၽြန္ေတာ္ကိုယ္တိုင္သံုးဖို႔ ဒီ library ေလးကိုေရးလိုက္တာပါ။ ဒါေပမဲ့ ကၽြန္ေတာ့ညီငယ္ Oscar Myo Min ရဲ႕ တိုက္တြန္းမႈ႕ေၾကာင့္ Public ေပးသံုးလိုက္တာပါ။ ဒါေၾကာင့္ ဒီ lib က အရမ္းအဆင္ေျပလွတယ္မဟုတ္ေပမဲ့ အထုိက္အေလ်ာက္ေတာ့ ေဇာ္ဂ်ီကေန ယူနီ၊ ယူနီကေန ေဇာ္ဂ်ီကို ေျပာင္းႏုိင္ေအာင္ အေထာက္အထူျပဳႏိုင္ပါတယ္။ ဒီ lib ကို အခမဲ့ အသံုးျပဳႏိုင္ပါတယ္။ ဒါေပမဲ့ အသံုးျပဳတဲ့အခါမွာေတာ့ credit ေပးေစလိုပါတယ္။ lib အသံုးျပဳပံုကိုေအာက္မွာေဖာ္ျပေပးထားပါတယ္။
 
-Zawgyi နဲ႔ေရးထားတာကို Unicode ေျပာင္းျပခ်င္တယ္ဆိုရင္ ပံုမွန္ေရးေနၾကပံုစံအတိုင္းနဲ႔ေရးမယ္ဆိုရင္ ေအာက္အတိုင္းေရးရံုပါပဲ။ “mm3.ttf” ဆိုတာကေတာ့ unicode font ျဖစ္ပါတယ္။ အဲ့ဒီေဖာင့္ကို assest folder ထဲ ထည့္ေပးထားရပါမယ္။ “mm3.ttf” ေဖာင့္ေနရာမွာ သင့္ Unicode font ကို အစားထိုးအသံုးျပဳႏိုင္ပါတယ္။
+Add it in your root build.gradle at the end of repositories:
 
-SanZtoU sanZtoU = new SanZtoU(this); String mystring = (String) sanZtoU.ZawGyiToUni("ေဖာ္ဂ်ီျဖင့္ေရးထားပါတယ္",true);
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+
+
+Add the dependency
+
+	dependencies {
+	        implementation 'com.github.SanKoKo:SanZawgyiUniTextView:2.0'
+	}
+
+
+# SanZawgyiUniTextView
+Zawgyi၊ Uni အမွန္ေပၚဖို႔ ေအာက္ပါ textView ကို အသံုးျပဳႏိုင္ပါတယ္။
+
+# Usage
+
+For zawgyi
+
+     <san.znu.textView.SanZawgyiTextView
+        android:id="@+id/tvZg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="99dp"
+        android:text="TextView"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+For Uni
+
+    <san.znu.textView.SanUniTextView
+        android:id="@+id/tvUni"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+TextView အတြက္တင္မက အျခား viewမ်ားက စာကုိပါ အမွန္ေပၚဖုိ႔ဆိုလွ်င္ေတာ့ ေအာက္ပါ အတိုင္း Create လုပ္ၿပီး သံုးရမွာျဖစ္ပါတယ္။
+
+	SanZtoU sanZtoU = new SanZtoU(this); 
+	
+	String mystring = (String) sanZtoU.ZawGyiToUni("ေဖာ္ဂ်ီျဖင့္ေရးထားပါတယ္",true);
 
 Typeface font = Typeface.createFromAsset(getAssets(),"mm3.ttf"); TextView tv = (TextView) findViewById(R.id.tv); tv.setText(mystring); tv.setTypeface(font);
 
@@ -61,55 +112,7 @@ Font chooser ရဲ႕ button ႏွိပ္လိုက္တာသိခ်�
 
 
 
-# SanZawgyiUniTextView
-Zawgyi အမွန္ေပၚဖို႔၊ Uni အမွန္ေပၚဖို႔ ဒီ textView ကို သံုးပါ
 
-
-
-Add it in your root build.gradle at the end of repositories:
-
-	allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
-
-
-Add the dependency
-
-	dependencies {
-	        implementation 'com.github.SanKoKo:SanZawgyiUniTextView:2.0'
-	}
-
-
-# Usage
-
-For zawgyi
-
-     <san.znu.textView.SanZawgyiTextView
-        android:id="@+id/tvZg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="99dp"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-For Uni
-
-    <san.znu.textView.SanUniTextView
-        android:id="@+id/tvUni"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
         
         
 Sample project လည္းပါတာမို႔ လြယ္ကူစြာ အသံုးျပဳႏုိင္မယ္လို႔ယူဆပါတယ္။ 
