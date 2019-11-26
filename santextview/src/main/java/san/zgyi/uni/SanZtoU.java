@@ -50,7 +50,7 @@ public class SanZtoU {
 		} else if(view instanceof Button)
 		{
 			showTextofTextView(data,(Button)view);
-		} 
+		}
 	}
 	
 	public void autoTextFaceToNavigationView(Menu menu){
